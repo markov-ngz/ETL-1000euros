@@ -1,0 +1,4 @@
+./podcast-0.0.1.tar.gz
+./utility-0.0.1.tar.gz
+./cortex-0.0.1.tar.gz
+./rabbitmq-0.0.1.tar.gz

@@ -1,0 +1,31 @@
+services:
+  target_database:
+    container_name: milleuro_db
+    image: postgres:16
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: username
+      POSTGRES_DB: franceinter
+    volumes:
+      - milleurodb:/var/lib/postgresql/data
+    networks:
+      milleuro:
+
+  rabbitmq1:
+    container_name: rabbitmq1
+    image: rabbitmq:4
+    ports:
+      - 127.0.0.1:5672:5672
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+volumes:
+  milleurodb:
+    name: "milleurodb"
+
+networks:
+  milleuro:
+    name: milleuro
+
+# psql -U username -d franceinter

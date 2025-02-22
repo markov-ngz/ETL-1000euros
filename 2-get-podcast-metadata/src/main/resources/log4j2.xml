@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="https://logging.apache.org/xml/ns"
+               xsi:schemaLocation="
+                       https://logging.apache.org/xml/ns
+                       https://logging.apache.org/xml/ns/log4j-config-2.xsd">
+
+  <Appenders>
+
+    <Console name="CONSOLE"> 
+      <PatternLayout pattern="%p - %m%n"/>
+    </Console>
+    <File name="DEBUG" fileName="logs/debug.log"> 
+      <JsonTemplateLayout/>
+    </File>
+    <File name="ERROR" fileName="logs/error.log"> 
+      <JsonTemplateLayout/>
+    </File>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="com.milleuros" level="DEBUG"> 
+      <AppenderRef ref="DEBUG"/>
+    </Logger>
+        <Logger name="com.milleuros" level="ERROR"> 
+      <AppenderRef ref="ERROR"/>
+    </Logger>
+  </Loggers>
+
+</Configuration>
